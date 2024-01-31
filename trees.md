@@ -170,3 +170,44 @@ The value we are returning to the next recursive call is the height of the curre
 - the **max height + 1** if we have both subtrees 
 
 The **+1** comes from the fact that we are counting the current node in the height, this returned value will be used as **left** or **right** subtree in the next recursive call.
+
+---
+<br/>
+
+## Check if the tree is balanced
+`Assignment`
+>A height balanced binary tree is a binary tree in which the height of the left subtree and right subtree of any node does not differ by more than 1 and both the left and right subtree are also height balanced.
+
+```python
+    def is_balanced_rec(self, root):
+        if root is None:
+            return True
+        
+        l = self.is_balanced_rec(root.left)
+        
+        if l == 0:
+            return 0
+        
+        r = self.is_balanced_rec(root.right)
+        if r == 0:
+            return 0
+        
+        if abs(l-r) > 1:
+            return 0
+        
+        return max(l,r)+1
+    
+    def is_balanced(self, root):
+        if self.is_balanced_rec(root) == 0:
+            return False
+        else:
+            True
+```
+`Description`
+
+We just check if the left subtree and the right subtree differ of at most one.
+
+If the subtrees differ more than one we just return `0`, that is propagated to all the recursive calls.
+
+`Complexity`
+$O(n)$

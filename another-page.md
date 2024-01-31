@@ -14,5 +14,6 @@ description: This is a detailed list of some problems I solved to prepare myself
 | Mirror tree                          | [Link](https://www.geeksforgeeks.org/problems/mirror-tree/1)                          |
 | Symmetric tree                       | [Link](https://www.geeksforgeeks.org/problems/symmetric-tree/1)                       |
 | Diameter of tree                     | [Link](https://www.geeksforgeeks.org/problems/diameter-of-binary-tree/1)              |
+| Check for Balanced Tree              | [Link](https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/)  |
 
 [back](./)
