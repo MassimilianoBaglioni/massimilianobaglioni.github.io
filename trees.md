@@ -208,6 +208,3 @@ The **+1** comes from the fact that we are counting the current node in the heig
 We just check if the left subtree and the right subtree differ of at most one.
 
 If the subtrees differ more than one we just return `0`, that is propagated to all the recursive calls.
-
-`Complexity`
-$O(n)$
