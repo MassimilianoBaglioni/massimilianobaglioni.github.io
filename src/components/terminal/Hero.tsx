@@ -32,8 +32,6 @@ export default function Hero({ name, role, tagline, status }: HeroProps) {
           {tagline ?? t.hero.tagline}
         </p>
       )}
-
-      {/* links removed */}
     </section>
   );
 }

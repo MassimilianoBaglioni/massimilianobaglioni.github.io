@@ -8,11 +8,8 @@ interface FooterLink {
 }
 
 interface SiteFooterProps {
-  /** Accent used for the status dot, cursor, and prompt colon — defaults to the terminal green used elsewhere. */
   accent?: string;
-  /** IANA timezone shown in the status row. Defaults to the site owner's local zone. */
   timezone?: string;
-  /** Short label shown next to the clock, e.g. "Europe/Rome" or "Perugia, IT". */
   timezoneLabel?: string;
   links?: FooterLink[];
 }

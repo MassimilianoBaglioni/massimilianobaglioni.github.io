@@ -52,29 +52,16 @@ export interface CategoryEntry {
   title: string;
   subtitle?: string;
   period?: string;
-  // Allow description to be a string (highlighted) or arbitrary ReactNode
   description?: string | ReactNode;
 }
 
 export interface CategoryCardProps {
-  /** Used in the "cat" header line, e.g. "education" -> `cat education.log` */
   slug: string;
-  /** Human label shown next to the slug, e.g. "Education" */
   label: string;
   entries: CategoryEntry[];
-  /**
-   * Accent color for this card (hex, rgb, or CSS var). Defaults to a
-   * terminal green. Pass a different one per category if you want
-   * education / work / projects to each have their own identity.
-   */
   accent?: string;
   icon?: ReactNode;
-  /** Extra classes, e.g. for sizing when used as a slide in CategoryFeed. */
   className?: string;
-  /**
-   * When true, omits the card's own title bar. Use this inside CategoryFeed,
-   * which renders one sticky title bar shared across all slides.
-   */
   bare?: boolean;
 }
 
