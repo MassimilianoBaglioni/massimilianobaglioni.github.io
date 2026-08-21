@@ -1,0 +1,406 @@
+@import 'tailwindcss';
+
+:root {
+  --bg-primary: #0b1016; /*Page background. Deeper than pure black. */
+  --bg-elevated: #121b22; /*Cards, sections. Subtle lift.*/
+  --border-subtle: #243244; /*Dividers, card borders. Barely visible.*/
+  --text-primary: #e5edf5; /*Headings, important text. Soft cool gray.*/
+  --text-secondary: #7f8fa6; /*Body text, metadata. Recedes when not needed*/
+  --text-strong: #f4f8ff; /*High-contrast text for terminal-heavy content.*/
+  --text-strong-soft: #dfe9f5; /*Readable secondary text with better contrast.*/
+  --text-panel-label: #ffffff; /*High-contrast labels in terminal panels and lists.*/
+  --accent: #7ee7a8; /*Softer green accent for a calmer interface.*/
+  --terminal-command: #dfffe8; /*Brighter command text for terminal command emphasis.*/
+  --terminal-green: var(
+    --accent
+  ); /*Alias to keep terminal green centralized with the main accent.*/
+  --terminal-red: #ff6b6b; /*Window controls.*/
+  --terminal-yellow: #f7c873; /*Window controls.*/
+  --terminal-success: #6ad98d; /*Window control success state.*/
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.terminal-scroll {
+  scroll-behavior: smooth;
+}
+
+/* inter-100 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  src: url('/fonts/Inter-Thin.woff2') format('woff2');
+}
+
+/* inter-100italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 100;
+  src: url('/fonts/Inter-ThinItalic.woff2') format('woff2');
+}
+
+/* inter-200 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  src: url('/fonts/Inter-ExtraLight.woff2') format('woff2');
+}
+
+/* inter-200italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 200;
+  src: url('/fonts/Inter-ExtraLightItalic.woff2') format('woff2');
+}
+
+/* inter-300 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/Inter-Light.woff2') format('woff2');
+}
+
+/* inter-300italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 300;
+  src: url('/fonts/Inter-LightItalic.woff2') format('woff2');
+}
+
+/* inter-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Inter-Regular.woff2') format('woff2');
+}
+
+/* inter-italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/fonts/Inter-Italic.woff2') format('woff2');
+}
+
+/* inter-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/Inter-Medium.woff2') format('woff2');
+}
+
+/* inter-500italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 500;
+  src: url('/fonts/Inter-MediumItalic.woff2') format('woff2');
+}
+
+/* inter-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+}
+
+/* inter-600italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 600;
+  src: url('/fonts/Inter-SemiBoldItalic.woff2') format('woff2');
+}
+
+/* inter-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/Inter-Bold.woff2') format('woff2');
+}
+
+/* inter-700italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/fonts/Inter-BoldItalic.woff2') format('woff2');
+}
+
+/* inter-800 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/fonts/Inter-ExtraBold.woff2') format('woff2');
+}
+
+/* inter-800italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 800;
+  src: url('/fonts/Inter-ExtraBoldItalic.woff2') format('woff2');
+}
+
+/* inter-900 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  src: url('/fonts/Inter-Black.woff2') format('woff2');
+}
+
+/* inter-900italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 900;
+  src: url('/fonts/Inter-BlackItalic.woff2') format('woff2');
+}
+
+/* jetbrains-mono-100 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100;
+  src: url('/fonts/JetBrainsMono-Thin.woff2') format('woff2');
+}
+
+/* jetbrains-mono-100italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 100;
+  src: url('/fonts/JetBrainsMono-ThinItalic.woff2') format('woff2');
+}
+
+/* jetbrains-mono-200 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 200;
+  src: url('/fonts/JetBrainsMono-ExtraLight.woff2') format('woff2');
+}
+
+/* jetbrains-mono-200italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 200;
+  src: url('/fonts/JetBrainsMono-ExtraLightItalic.woff2') format('woff2');
+}
+
+/* jetbrains-mono-300 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/JetBrainsMono-Light.woff2') format('woff2');
+}
+
+/* jetbrains-mono-300italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 300;
+  src: url('/fonts/JetBrainsMono-LightItalic.woff2') format('woff2');
+}
+
+/* jetbrains-mono-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+}
+
+/* jetbrains-mono-italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/fonts/JetBrainsMono-Italic.woff2') format('woff2');
+}
+
+/* jetbrains-mono-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/JetBrainsMono-Medium.woff2') format('woff2');
+}
+
+/* jetbrains-mono-500italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 500;
+  src: url('/fonts/JetBrainsMono-MediumItalic.woff2') format('woff2');
+}
+
+/* jetbrains-mono-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/JetBrainsMono-SemiBold.woff2') format('woff2');
+}
+
+/* jetbrains-mono-600italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 600;
+  src: url('/fonts/JetBrainsMono-SemiBoldItalic.woff2') format('woff2');
+}
+
+/* jetbrains-mono-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
+}
+
+/* jetbrains-mono-700italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/fonts/JetBrainsMono-BoldItalic.woff2') format('woff2');
+}
+
+/* jetbrains-mono-800 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/fonts/JetBrainsMono-ExtraBold.woff2') format('woff2');
+}
+
+/* jetbrains-mono-800italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 800;
+  src: url('/fonts/JetBrainsMono-ExtraBoldItalic.woff2') format('woff2');
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* Hide native scrollbars on terminal scroll areas and category card bodies */
+.terminal-scroll,
+.category-card-scroll {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.terminal-scroll::-webkit-scrollbar,
+.category-card-scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Fallback styling if some browsers show a thin track — keep it transparent */
+.terminal-scroll::-webkit-scrollbar-track,
+.category-card-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Keep previous thumb styles for completeness (not visible when scrollbar width is 0) */
+.terminal-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 9999px;
+}
+
+.terminal-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-muted);
+}
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-bg-primary: #0d1419;
+  --color-bg-header: #17242d;
+  --color-bg-card: #1a2a33;
+
+  --color-border: #2f3d4d;
+  --color-border-subtle: #233343;
+
+  --color-text-primary: #e3ecf4;
+  --color-text-secondary: #8aa0b5;
+  --color-text-muted: #6d8296;
+
+  --color-accent: var(--accent);
+  --color-terminal-green: var(--accent);
+  --color-terminal-red: var(--terminal-red);
+  --color-terminal-yellow: var(--terminal-yellow);
+  --color-terminal-success: var(--terminal-success);
+}

@@ -1,0 +1,8 @@
+node_modules
+.vscode
+dist
+build
+.vite
+.DS_Store
+public
+package-lock.json
